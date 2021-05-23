@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.NonNull;
+
 @Table(name = "user", schema = "seminar")
 @Entity
 public class User {
@@ -15,12 +17,16 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 
-	@Column(name = "full_name")
+	@Column(name = "full_name", nullable = false)
+	@NonNull
 	String fullName;
 
+	@Column(nullable = false)
+	@NonNull
 	String email;
 
-	@Column(name = "phone_number")
+	@Column(name = "phone_number", nullable = false)
+	@NonNull
 	String phoneNumber;
 
 	public int getId() {
